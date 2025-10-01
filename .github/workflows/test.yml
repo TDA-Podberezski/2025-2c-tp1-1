@@ -27,4 +27,5 @@ jobs:
 
       - name: Run hidden tests
         run: |
+          ls tests_hidden/;
           pytest tests_hidden/ --maxfail=1 --disable-warnings -q
