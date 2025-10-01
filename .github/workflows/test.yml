@@ -24,7 +24,10 @@ jobs:
           token: ${{ secrets.HIDDEN_TOKEN }}
           path: tests_hidden
 
+      - name: Run tests sts
+        run: |
+          pytest test.py --maxfail=1 --disable-warnings -q
+
       - name: Run hidden tests
         run: |
-          pip install pytest
           pytest tests_hidden/ --maxfail=1 --disable-warnings -q
