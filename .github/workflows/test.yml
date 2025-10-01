@@ -22,7 +22,8 @@ jobs:
         with:
           repository: TDA-Podberezski/2025-2c-tp1-1-tests
           token: ${{ secrets.HIDDEN_TOKEN }}
-          path: private-repo
+          path: tests_hidden
+          ref: main
         
 
       - name: Run tests sts
