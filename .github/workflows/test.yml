@@ -16,11 +16,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install pytest
-      - name: Set PAT as env
-        run: echo "HIDDEN_TOKEN=${{ secrets.HIDDEN_TOKEN }}" >> $GITHUB_ENV
 
       - name: Use token
-        run: git clone https://x-access-token:$HIDDEN_TOKEN@github.com/TDA-Podberezski/2025-2c-tp1-1-tests.git tests_hidden
+        run: git clone https://x-access-token:${{ secrets.HIDDEN_TOKEN }}@github.com/TDA-Podberezski/2025-2c-tp1-1-tests.git tests_hidden
         
 
       - name: Run tests sts
