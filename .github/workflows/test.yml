@@ -18,14 +18,12 @@ jobs:
         run: pip install pytest
 
       - name: Use token
-        run: git clone https://x-access-token:${{ secrets.HIDDEN_TOKEN }}@github.com/TDA-Podberezski/2025-2c-tp1-1-tests.git tests_hidden
+        run: git clone https://x-access-token:${{ secrets.HIDDEN_TOKEN }}@github.com/TDA-Podberezski/2025-2c-tp1-1-tests.git .
         
-
       - name: Run tests sts
         run: |
           pytest test.py --maxfail=1 --disable-warnings -q
 
       - name: Run hidden tests
         run: |
-          ls tests_hidden/;
-          pytest tests_hidden/test.py --maxfail=1 --disable-warnings -q
+          pytest test_hidden.py --maxfail=1 --disable-warnings -q
