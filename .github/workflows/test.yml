@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: TDA-Podberezski/2025-2c-tp1-1-tests
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.HIDDEN_TOKEN }}
           path: tests_hidden
           ref: main
 
