@@ -1,0 +1,30 @@
+# .github/workflows/test.yml
+name: Autograder
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Checkout hidden tests
+        uses: actions/checkout@v4
+        with:
+          repository: TDA-Podberezski/2025-2c-tp1-1-tests
+          token: ${{ secrets.HIDDEN_TOKEN }}
+          path: tests_hidden
+
+      - name: Run hidden tests
+        run: |
+          pip install pytest
+          pytest tests_hidden/ --maxfail=1 --disable-warnings -q
