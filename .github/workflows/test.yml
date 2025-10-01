@@ -16,6 +16,10 @@ jobs:
 
       - name: Install dependencies
         run: pip install pytest
+      - name: Clone hidden tests manually
+        run: git clone --branch main https://$GITHUB_TOKEN@github.com/TDA-Podberezski/2025-2c-tp1-1-tests.git tests_hidden
+        env:
+          GITHUB_TOKEN: ${{ secrets.HIDDEN_TOKEN }}
 
       - name: Checkout hidden tests
         uses: actions/checkout@v4
