@@ -17,12 +17,8 @@ jobs:
       - name: Install dependencies
         run: pip install pytest
       - name: Checkout hidden tests
-        uses: actions/checkout@v4
-        with:
-          repository: TDA-Podberezski/2025-2c-tp1-1-tests
-          token: ${{ secrets.HIDDEN_TOKEN }}
-          path: tests_hidden
-          ref: main
+        run: git clone https://x-access-token:${{ secrets.HIDDEN_TOKEN }}@github.com/TDA-Podberezski/2025-2c-tp1-1-tests.git tests_hidden
+
 
       - name: Run tests sts
         run: |
